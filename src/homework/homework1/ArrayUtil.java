@@ -63,7 +63,7 @@ public class ArrayUtil {
         System.out.println(sum);
         System.out.println("_____________________");
         int average = 0;
-        average = sum / 2;
+        average = sum / numbers.length;
         System.out.println(average);
 
 
