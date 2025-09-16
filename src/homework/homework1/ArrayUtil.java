@@ -62,12 +62,10 @@ public class ArrayUtil {
         }
         System.out.println(sum);
         System.out.println("_____________________");
-        int sum1 = 0;
         int average = 0;
-        for (int i = 0; i < numbers.length; i++) {
-            sum1 = sum1 + numbers[i];
-            average = sum1 / 2;
-        }
+        average = sum / 2;
         System.out.println(average);
+
+
     }
 }
