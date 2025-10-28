@@ -2,10 +2,8 @@ package homework.library;
 
 import java.util.Scanner;
 
-public class LibraryDemo implements Commands{
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
-
 
     public static void main(String[] args) {
         boolean isRun = true;
