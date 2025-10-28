@@ -34,12 +34,18 @@ public class EmployeeStorage {
     }
 
 
-    public void searchCompanyEmployee(String company){
-        for (int i = 0; i < size; i++) {
-            if (employees[i].getCompany().contains(company)) {
-                System.out.println(employees[i]);
+    public void searchCompanyEmployee(String company) {
+        int count = 0;
+        for (Employee employee : employees) {
+            if (employee != null && employee.getCompany().equalsIgnoreCase(company)) {
+                System.out.println(employee);
+                count++;
             }
         }
+        if (count == 0) {
+            System.out.println("No employees found for company: " + company);
+        }
     }
+
 }
 

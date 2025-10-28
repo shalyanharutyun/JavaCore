@@ -30,7 +30,7 @@ public class EmployeeDemo implements EmployeeCommands {
                 employeeStorage.search(id);
                 break;
                 case SEARCH_EMPLOYEE_BY_COMPANY_NAME:
-                    System.out.println("Please input keyword");
+                    System.out.println("Please input company name:");
                     String company = scanner.nextLine();
                     employeeStorage.searchCompanyEmployee(company);
                     break;
