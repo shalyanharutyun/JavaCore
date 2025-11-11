@@ -2,6 +2,10 @@ package homework.library;
 
 import java.util.Scanner;
 
+import static homework.library.Commands.*;
+
+public class  LibraryDemo {
+
     private static Scanner scanner = new Scanner(System.in);
     private static BookStorage bookStorage = new BookStorage();
 

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class EmployeeDemo implements EmployeeCommands {
     private static Scanner scanner = new Scanner(System.in);
-    private static EmployeeStorage employeeStorage = new EmployeeStorage();
+    public static EmployeeStorage employeeStorage = new EmployeeStorage();
 
     public static void main(String[] args) {
         boolean isRun = true;
@@ -25,15 +25,27 @@ public class EmployeeDemo implements EmployeeCommands {
                     employeeStorage.print();
                     break;
                 case SEARCH_EMPLOYEE_BY_EMPLOYEID:
-                System.out.println("Please input keyword");
-                String id = scanner.nextLine();
-                employeeStorage.search(id);
-                break;
+                    System.out.println("Please input keyword");
+                    String id = scanner.nextLine();
+                    employeeStorage.search(id);
+                    break;
                 case SEARCH_EMPLOYEE_BY_COMPANY_NAME:
                     System.out.println("Please input company name:");
                     String company = scanner.nextLine();
                     employeeStorage.searchCompanyEmployee(company);
                     break;
+                case SEARCH_EMPLOYEES_BY_POSTION_LEVEL:
+                    System.out.println("Enter position level (JUNIOR, MIDDLE, SENIOR, LEAD):");
+                    String levelStr = scanner.nextLine().toUpperCase();
+
+                    try {
+                        PositionLevel level = PositionLevel.valueOf(levelStr);
+                        employeeStorage.searchEmployeesByPosition(level);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Invalid position level! Please enter one of: JUNIOR, MIDDLE, SENIOR, LEAD");
+                    }
+                    break;
+
                 default:
                     System.err.println("wrong cammand, try again");
             }
@@ -53,6 +65,9 @@ public class EmployeeDemo implements EmployeeCommands {
         String company = scanner.nextLine();
         System.out.println("Please input Employee's position");
         String position = scanner.nextLine();
+        System.out.println("Enter position level (JUNIOR, MIDDLE, SENIOR, LEAD):");
+        String levelStr = scanner.nextLine().toUpperCase();
+        PositionLevel level = PositionLevel.valueOf(levelStr);
         Employee employee = new Employee();
         employee.setName(name);
         employee.setSurname(surname);
@@ -60,6 +75,7 @@ public class EmployeeDemo implements EmployeeCommands {
         employee.setSalary(salary);
         employee.setCompany(company);
         employee.setPosition(position);
+        employee.setLevel(level);
         employeeStorage.add(employee);
         System.out.println("Employee added successfuly");
     }
@@ -69,6 +85,7 @@ public class EmployeeDemo implements EmployeeCommands {
         System.out.println("Please input " + ADD_EMPLOYEE + " for Add Employe");
         System.out.println("Please input " + SEARCH_EMPLOYEE_BY_EMPLOYEID + " for Search Employee By EmployeID");
         System.out.println("Please input " + SEARCH_EMPLOYEE_BY_COMPANY_NAME + " for Search Employee By Company Name");
+        System.out.println("Please input " + SEARCH_EMPLOYEES_BY_POSTION_LEVEL + " for Search Employee By Position");
 
     }
 

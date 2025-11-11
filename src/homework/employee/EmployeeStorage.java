@@ -2,6 +2,8 @@ package homework.employee;
 
 import homework.library.Book;
 
+import static homework.employee.EmployeeDemo.employeeStorage;
+
 public class EmployeeStorage {
     private Employee[] employees = new Employee[10];
     private int size = 0;
@@ -47,5 +49,21 @@ public class EmployeeStorage {
         }
     }
 
+    public void searchEmployeesByPosition(PositionLevel positionLevel) {
+        int count = 0;
+        for (Employee employee : employees) {
+            if (employee != null && employee.getLevel() == positionLevel) {
+                System.out.println(employee);
+                count++;
+            }
+        }
+
+        if (count == 0) {
+            System.out.println("No employees found with position level: " + positionLevel);
+        }
+    }
+
+
 }
+
 
