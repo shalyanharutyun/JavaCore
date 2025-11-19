@@ -134,7 +134,7 @@ class MedicalCenterDemo implements Commands {
         }
 
         System.out.println("Enter patient data: id,name,surname,phone");
-        String[] data = scanner.nextLine().split(",");
+        String[] data = scanner.nextLine().split("");
 
         Patient patient = new Patient(
                 data[0],
@@ -143,7 +143,7 @@ class MedicalCenterDemo implements Commands {
                 data[3],
                 doctor,
                 LocalDateTime.now(),
-                LocalDate.now(),
+                LocalDate.now()
         );
 
 
